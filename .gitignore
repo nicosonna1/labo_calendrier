@@ -1,0 +1,6 @@
+# extension a ignorer
+
+*.code-workspace
+.vscode/
+/cmake-build-debug/*
+/.idea/*
