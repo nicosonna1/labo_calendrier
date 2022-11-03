@@ -1,19 +1,9 @@
-//---------------------------------------------------------
-// Fichier        : afficage.hpp
-// Version        : 01 - 2022-11-22
-// Auteur(s)      : Sangnakkara Julia et Sonnard Nicolas
-// But            : ce fichier ne contient uniquement les
-//                  déclarations mises à disposition par la librairie
-//
-//                  Ce fichier doit  documenter les elements
-//                  mis à disposition de l'utilisateur
-// Modifications  :
-// Remarque(s)    : NILL
-//---------------------------------------------------------
+# ifndef INCLUDES_AFFICHAGE_H
+# define INCLUDES_AFFICHAGE_H
+# include <iostream>
+# include <cstdlib>
 
-//-------------------------------------------------------------------------
-// /!\ eviter les inclusions multiples
-#ifndef affichage
-
-
+void  msg_bienvenue_explications(void);
+void  msg_erreur_saisie(void);
+void  msg_menu_quitter_prg(void);
 #endif

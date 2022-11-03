@@ -1,8 +1,12 @@
-#include <iostream>
+#ifndef CALENDRIER
+# define CALENDRIER
+# include "affichage.hpp"
+# include "date.hpp"
+# include "saisie.hpp"
+#endif
+
+using namespace std;
 
 int main() {
-    while (1) {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
+   //work in progress
 }

@@ -1,19 +1,17 @@
-
-
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-#include "date.hpp"
+#ifndef DATE_HPP
+# define DATE_HPP
+# include <cstdlib>
+# include <iostream>
+//# include <vector>
+# include "date.hpp"
+# endif
 
 using namespace std;
-
-
-
 
 /************************************************************
 *
 *      fonction permettant de savoir si une annee 
-*      est bissextil ou non 
+*      est bissextile ou non
 *
 * @param annee
 * @param bool
@@ -27,9 +25,9 @@ bool estBissextile(const int& annee) {
 
 /************************************************************
 *
-*      fonction de renvoyer le nom d'un mois 
-*      la fonction renverra un boolean ssavoir si cela c'est 
-*      bien passé.
+*      fonction renvoie le nom d'un mois
+*      la fonction renverra un boolean savoir si cela c'est
+*      bien passe.
 *
 * @param annee
 * @param string
