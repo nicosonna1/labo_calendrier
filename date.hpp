@@ -15,5 +15,9 @@
 // /!\ eviter les inclusions multiples
 #ifndef date
 
+//prototype des fonctions
+
+bool   estBissextile (const int& annee);
+bool nomMois(const int& mois,string& nomMois);
 
 #endif
