@@ -55,7 +55,7 @@ bool nomMois(const int& mois,string& nomMois) {
    //repris de l'exemple  volontairement un .at pour lever une exception
    nomMois = MOIS.at( size_t(mois - 1) );
    return true;
-   else return return false;
+   else return false;
 }
 
 
@@ -102,7 +102,21 @@ bool  nbJoursMois(int& mois, int& annee, int& totalJours) {
 
 }
 
-void premierJourDuMois(){
-   
+/************************************************************
+*
+*      renvoie le premier jour du mois 
+*      le lundi sera un le 1 et le dimanche le 7
+*
+* @param mois
+* @param annee
+* @param nbjour
+* @param error
+*
+***********************************************************/
+
+void premierJourJanvier(const int& annee, int& jour){
+   // pour l'instant le jour sera 1 donc lundi
+   // nice to have
+   jour =1;
 }
 
