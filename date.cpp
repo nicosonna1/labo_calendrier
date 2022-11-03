@@ -102,4 +102,7 @@ bool  nbJoursMois(int& mois, int& annee, int& totalJours) {
 
 }
 
+void premierJourDuMois(){
+   
+}
 
