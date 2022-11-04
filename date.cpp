@@ -51,10 +51,11 @@ bool nomMois(const int& mois,string& nomMois) {
                                        "novembre", 
                                        "decembre"};
 
-    if (mois>=0 && mois <=11)
+    if (mois>=0 && mois <=11){
    //repris de l'exemple  volontairement un .at pour lever une exception
    nomMois = MOIS.at( size_t(mois - 1) );
    return true;
+    }
    else return false;
 }
 
