@@ -101,8 +101,7 @@ bool affichage_calendrier(const int& annee_calendrier) {
 
          if (k != 7) {
             if (j == nb_jour_par_mois) {
-              k = 0;
-            }
+              k = 0; }
             cout << " ";
          }
          else {
