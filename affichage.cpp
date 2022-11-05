@@ -3,33 +3,29 @@
 // Fichier        : affichage.cpp
 // Version        : 01 - 2022-09-05
 // Auteur(s)      : Sangnakkara Julia && Nicolas Sonnard
-// But            : ce fichier ne contient uniquement les
-//                  déclarations mises à disposition par la librairie
+// But            : ce fichier contient les
+//                  declarations mises à disposition par la librairie
 //
-//                  Librairie permettant l'affichage des diferents
+//                  Librairie permettant l'affichage des differents
 //                  elements du programme.
 // Modifications  :
 // Remarque(s)    : NILL
 //---------------------------------------------------------
 
-#include <cstdlib>
 #include "affichage.hpp"
 #include "date.hpp"
 #include <iostream>
 
-// prototype des fonctions
-
-
+#define ANNEE_MIN 1800
+#define ANNEE_MAX 2100
 
 using namespace std;
 
-
-
 /************************************************************
 *
-*      fct renvoie le nom d'un mois
-*      la fonction renverra un boolean savoir si cela c'est
-*      bien passe.
+*      fct qui affiche le nom d'un mois dont le numero
+*      a ete passe en parametre par reference
+*
 *
 * @param annee_calendrier
 * @param string
@@ -56,7 +52,8 @@ void nomMois(const int& numero_mois) {
 /************************************************************
 *
 *      fct qui affiche un message de bienvenue
-*      et qui invite l'utilisateur a entrer une valeur
+*      et qui invite l'utilisateur a saisir l'annee
+*      pour laquelle il souhaiterait afficher le calendrier
 *
 * @param void
 * @param void
@@ -70,27 +67,27 @@ void  msg_bienvenue(void) {
 /************************************************************
 *
 *      fct qui affiche un message de bienvenue
-*      et qui invite l'utilisateur a entrer une valeur
+*      et invite l'utilisateur a entrer une valeur
 *
 * @param void
 * @param void
 *
 ***********************************************************/
 void msg_explications(void) {
-   cout << "Veuillez entrer une valeur situee entre 1800 et 2100" << endl;
+   cout << "Veuillez entrer une valeur situee entre " << ANNEE_MIN << " et " << ANNEE_MAX << endl;
 }
 
 /************************************************************
 *
-*      fct qui affiche un message d'erreur en cas de saisie
-*      non valide par l'utilisateur.
+*      fct qui affiche un message d'erreur
+*     en cas de saisie non valide
 *
 * @param void
 * @param void
 *
 ***********************************************************/
 void  msg_erreur_saisie(void) {
-   cout  << "Erreur, veuillez saisir une date entre 1800 et 2100."  << endl;
+   cout  << "Erreur, veuillez saisir une date entre " << ANNEE_MIN << " et " << ANNEE_MAX << endl;
 }
 
 /************************************************************
@@ -110,9 +107,8 @@ void msg_menu_quitter_prg(void) {
 
 /************************************************************
 *
-*      fct qui affiche le calendrier d'une annee donnee,
-*      tous les mois, annee bissextile ou non, les dates
-*      alignees avec les jours.
+*      fct qui affiche le calendrier entier d'une annee donnee,
+*      les dates sont affichees sous le jour correspondant.
 *
 * @param int
 *
@@ -142,6 +138,8 @@ void affichage_calendrier(const int& annee_calendrier) {
          cout << j++;
 
          if (k != 7) {
+            if (j == nb_jour_par_mois) {
+               k = 0; }
             cout << " ";
          }
          else {
@@ -149,7 +147,7 @@ void affichage_calendrier(const int& annee_calendrier) {
             cout << endl;
          }
       }
-      cout << endl ;
+      cout << endl << endl;
       premier_jour_mois = k;
       ++numero_mois;
       k = 1;

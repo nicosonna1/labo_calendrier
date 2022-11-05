@@ -14,8 +14,10 @@
 #define INCLUDES_DATE_H
 #include <cstdlib>
 
-bool estBissextile(const int& annee_calendrier);
-int nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours);
-signed int  premier_jour_janvier(const int& annee);
+// prototype des fonctions
+
+bool       estBissextile(const int& annee_calendrier);
+int        nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours);
+signed int premier_jour_janvier(const int& annee);
 
 #endif

@@ -1,16 +1,20 @@
+//---------------------------------------------------------
+// Demo           : affichage
+// Fichier        : affichage.cpp
+// Version        : 01 - 2022-09-05
+// Auteur(s)      : Sangnakkara Julia && Nicolas Sonnard
+// But            : ce fichier contient les
+//                  declarations mises a disposition par la librairie
+//
+//                  Librairie permettant l'affichage des differents
+//                  elements du programme.
+// Modifications  :
+// Remarque(s)    : NILL
+//---------------------------------------------------------
 
 #include "date.hpp"
-#include <iostream>     // cout et cin
-
 
 using namespace std;
-
-// constante locale
-// choix de 1601 car tombe un lundi. Il faut toujours prendre un lundi
-const int ANNNEE_MIN=1900;
-
-
-
 
 /************************************************************
 *
@@ -26,10 +30,6 @@ bool estBissextile(const int& annee_calendrier) {
     return (annee_calendrier % 4 == 0) || (annee_calendrier % 4 == 0 && annee_calendrier % 100 != 0);
 
 }
-
-
-
-
 
 /************************************************************
 *
@@ -71,6 +71,10 @@ int nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours) 
 * @param error
 *
 ***********************************************************/
+// constante locale
+// choix de 1601 car tombe un lundi. Il faut toujours prendre un lundi
+const int ANNNEE_MIN = 1900;
+
 signed int  premier_jour_janvier(const int& annee){
 
     /*
@@ -81,17 +85,11 @@ signed int  premier_jour_janvier(const int& annee){
     nbJours += 2;
 */
     // retour une erreur car hors limite
-    unsigned int deltaAnnee=(annee-1)-ANNNEE_MIN;
-    //division par 4 toleree a condition que ANNEE_MIN ait un lundi 1 er janvier
-    unsigned int anneeBissexctile = deltaAnnee / 4 ;
-    unsigned int anneeNormale =deltaAnnee-anneeBissexctile;
-
-    unsigned int totalAnnee = anneeBissexctile*366 + anneeNormale*365 + deltaAnnee / 100 +1 ;
-    // ajout de 1 au jour car lundi = 1
-    return totalAnnee%7+1;
-    // return ok car annee correct
-    return true;
-
-
+    int deltaAnnee = (annee - 1) - ANNNEE_MIN;
+    // division par 4 toleree a condition que ANNEE_MIN ait un lundi 1er janvier
+    int anneeBissexctile = deltaAnnee / 4 ;
+    int anneeNormale = deltaAnnee-anneeBissexctile;
+    int totalAnnee = anneeBissexctile * 366 + anneeNormale * 365 + deltaAnnee / 100 + 1 ;
+    return totalAnnee % 7 + 1;
 }
 

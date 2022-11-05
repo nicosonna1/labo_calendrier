@@ -3,18 +3,17 @@
 // Fichier        : saisie.cpp
 // Version        : 01 - 2022-09-05
 // Auteur(s)      : Sangnakkara Julia && Sonnard Nicolas
-// But            : saisie et controle des donnees entre
+// But            : saisie et controle des donnees entrees
 //                  par l'utilisateur
 //
 // Modifications  :
 // Remarque(s)    : NILL
 //---------------------------------------------------------
 
-
 #include "saisie.hpp"
 #include "affichage.hpp"
 
-#include <limits>
+#include <limits>       // numeric_limits
 #include <cstdlib>      // EXIT_SUCCESS
 #include <iostream>     // cout et cin
 
@@ -28,16 +27,16 @@ using namespace std;
 * @param void
 ***********************************************************/
  void nettoyage_flux(void) {
-   cin.clear(); //changer en cin.fail?
+   cin.clear();
 }
 
 
 /************************************************************
 *
 *      Fct qui stocke une annee entree par l'utilisateur.
-*      Si l'utilisateur rentre une donnee invalide ou une
+*      Si l'utilisateur rentre une donnee non valide ou une
 *      annee hors de l'intervalle [1800;2100], le flux est
-*      nettoye, le buffer de saisie vide et l'utilisateur
+*      nettoye, le buffer de saisie vide, l'utilisateur
 *      doit saisir une nouvelle valeur.
 *
 * @param void
