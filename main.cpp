@@ -17,7 +17,8 @@ int main() {
       msg_explications();
       saisie_annee_calendrier(annee_calendrier);
       affichage_calendrier(annee_calendrier);
-      if (menu_quitter())
-         return EXIT_SUCCESS;
+      if (menu_quitter()) {
+         msg_au_revoir();
+         return EXIT_SUCCESS; }
    } while (1);
 }

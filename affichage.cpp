@@ -49,7 +49,7 @@ void msg_explications(void) {
 *
 ***********************************************************/
 void  msg_erreur_saisie(void) {
-   cout  << "Erreur, veuillez saisir une date entre 1800 et 2100."  << endl;
+   cout  << "Erreur, veuillez recommencer."  << endl;
 }
 
 /************************************************************
@@ -90,7 +90,6 @@ bool affichage_calendrier(const int& annee_calendrier) {
 
       nomMois(numero_mois);
       cout << " L  M  M  J  V  S  D" << endl;
-
       for (; k <= 7 && j <= nb_jour_par_mois; ++k) {
          for (; premier_jour_mois > 1; --premier_jour_mois) {
             cout << "   ";
@@ -101,6 +100,9 @@ bool affichage_calendrier(const int& annee_calendrier) {
          cout << j++;
 
          if (k != 7) {
+            if (j == nb_jour_par_mois) {
+              k = 0;
+            }
             cout << " ";
          }
          else {
@@ -115,4 +117,16 @@ bool affichage_calendrier(const int& annee_calendrier) {
       j = 1;
    }
    return EXIT_SUCCESS;
+}
+
+/************************************************************
+*
+*      fct qui affiche un message d'au revoir
+*
+* @param void
+* @param void
+*
+***********************************************************/
+void  msg_au_revoir(void) {
+   cout  << "A bientot!" << endl;
 }

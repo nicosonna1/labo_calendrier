@@ -19,7 +19,7 @@ using namespace std;
 bool estBissextile(const int& annee_calendrier) {
    if (annee_calendrier % 4 == 0 && annee_calendrier % 100 != 0 )
         return true;
-   else return false;
+   return false;
 }
 
 /************************************************************
@@ -51,38 +51,14 @@ void nomMois(const int& numero_mois) {
    //return EXIT_SUCCESS;
 }
 
-/* On va pas garder ça, je pense
-bool nomMois(const int& mois,string& nomMois) {
-   static const vector<string> MOIS = {"janvier",
-                                       "fevrier", 
-                                       "mars",      
-                                       "avril",   
-                                       "mai",      
-                                       "juin",
-                                       "juillet", 
-                                       "aout",    
-                                       "septembre", 
-                                       "octobre", 
-                                       "novembre", 
-                                       "decembre"};
-
-    if (mois>=0 && mois <=11)
-   //repris de l'exemple  volontairement un .at pour lever une exception
-   nomMois = MOIS.at( size_t(mois - 1) );
-   return true;
-   else return return false;
-}*/
-
-
 /************************************************************
 *
 *      fct qui renvoie le nbr de jour dans un mois donne
 *      la fct renvoie un boolean si cela c'est bien passe.
 *
-* @param mois
-* @param annee
+* @param numero_mois
+* @param annee_calendrier
 * @param nbjour
-* @param error
 *
 ***********************************************************/
 int nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours) {
