@@ -1,13 +1,20 @@
-#ifndef INCLUDES_SAISIE_HPP
-#define INCLUDES_SAISIE_HPP
-//#define cin.ignore(numeric_limits<streamsize>::max(), '\n') VIDER_BUFFER
+//---------------------------------------------------------
+// Demo           : saisie
+// Fichier        : saisie.hpp
+// Version        : 01 - 2022-09-05
+// Auteur(s)      : Sangnakkara Julia && Sonnard Nicolas
+// But            : saisie et controle des donnees entre
+//                  par l'utilisateur
+//
+// Modifications  :
+// Remarque(s)    : NILL
+//---------------------------------------------------------
 
-#include <limits>
-#include <iostream>
-#include "saisie.hpp"
+#ifndef SAISIE_HPP
+#define SAISIE_HPP
+
 
 bool saisie_annee_calendrier(int& annee_calendrier);
-bool nettoyage_flux(void);
 bool menu_quitter(void);
 
-#endif //INCLUDES_SAISIE_HPP
+#endif

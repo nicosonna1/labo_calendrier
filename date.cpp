@@ -1,11 +1,16 @@
-#ifndef DATE_HPP
-#define DATE_HPP
-#include <cstdlib>
-#include <iostream>
+
 #include "date.hpp"
-#endif //DATE_HPP
+#include <iostream>     // cout et cin
+
 
 using namespace std;
+
+// constante locale
+// choix de 1601 car tombe un lundi. Il faut toujours prendre un lundi
+const int ANNNEE_MIN=1900;
+
+
+
 
 /************************************************************
 *
@@ -17,61 +22,13 @@ using namespace std;
 *
 ***********************************************************/
 bool estBissextile(const int& annee_calendrier) {
-   if (annee_calendrier % 4 == 0 && annee_calendrier % 100 != 0 )
-        return true;
-   else return false;
+
+    return (annee_calendrier % 4 == 0) || (annee_calendrier % 4 == 0 && annee_calendrier % 100 != 0);
+
 }
 
-/************************************************************
-*
-*      fct renvoie le nom d'un mois
-*      la fonction renverra un boolean savoir si cela c'est
-*      bien passe.
-*
-* @param annee_calendrier
-* @param string
-*
-***********************************************************/
-void nomMois(const int& numero_mois) {
-   switch (numero_mois) {
-      case 1  : cout << "Janvier"   << endl; break;
-      case 2  : cout << "Fevrier"   << endl; break;
-      case 3  : cout << "Mars"      << endl; break;
-      case 4  : cout << "Avril"     << endl; break;
-      case 5  : cout << "Mai"       << endl; break;
-      case 6  : cout << "Juin"      << endl; break;
-      case 7  : cout << "Juillet"   << endl; break;
-      case 8  : cout << "Aout"      << endl; break;
-      case 9  : cout << "Septembre" << endl; break;
-      case 10 : cout << "Octobre"   << endl; break;
-      case 11 : cout << "Novembre"  << endl; break;
-      case 12 : cout << "Decembre"  << endl; break;
-      //default : return EXIT_FAILURE;
-   }
-   //return EXIT_SUCCESS;
-}
 
-/* On va pas garder ça, je pense
-bool nomMois(const int& mois,string& nomMois) {
-   static const vector<string> MOIS = {"janvier",
-                                       "fevrier", 
-                                       "mars",      
-                                       "avril",   
-                                       "mai",      
-                                       "juin",
-                                       "juillet", 
-                                       "aout",    
-                                       "septembre", 
-                                       "octobre", 
-                                       "novembre", 
-                                       "decembre"};
 
-    if (mois>=0 && mois <=11)
-   //repris de l'exemple  volontairement un .at pour lever une exception
-   nomMois = MOIS.at( size_t(mois - 1) );
-   return true;
-   else return return false;
-}*/
 
 
 /************************************************************
@@ -103,3 +60,38 @@ int nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours) 
    }
    return totalJours;
 }
+
+/************************************************************
+*
+*      fct qui calcule le premier jour de janvier
+*      selon wikipedia le calendrier georgien a ete adopté
+*     en 1548 par consequent la fonctionne commencer en 1601 min
+*     le premier janvier 1600 etait un samedi donc 6 eme jour
+* @param annee
+* @param error
+*
+***********************************************************/
+signed int  premier_jour_janvier(const int& annee){
+
+    /*
+    unsigned int nbJours = (annee - 1) * 365;
+    nbJours += ((annee - 1) / 4);
+    nbJours -= ((annee - 1) / 100);
+    nbJours += ((annee - 1) / 400);
+    nbJours += 2;
+*/
+    // retour une erreur car hors limite
+    unsigned int deltaAnnee=(annee-1)-ANNNEE_MIN;
+    //division par 4 toleree a condition que ANNEE_MIN ait un lundi 1 er janvier
+    unsigned int anneeBissexctile = deltaAnnee / 4 ;
+    unsigned int anneeNormale =deltaAnnee-anneeBissexctile;
+
+    unsigned int totalAnnee = anneeBissexctile*366 + anneeNormale*365 + deltaAnnee / 100 +1 ;
+    // ajout de 1 au jour car lundi = 1
+    return totalAnnee%7+1;
+    // return ok car annee correct
+    return true;
+
+
+}
+

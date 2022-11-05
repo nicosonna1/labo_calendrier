@@ -1,16 +1,57 @@
-#ifndef AFFICHAGE_HPP
-#define AFFICHAGE_HPP
-//#define cin.ignore(numeric_limits<streamsize>::max(), '\n') VIDER_BUFFER
-#include "affichage.hpp"
-#endif //AFFICHAGE_HPP
+//---------------------------------------------------------
+// Demo           : affichage
+// Fichier        : affichage.cpp
+// Version        : 01 - 2022-09-05
+// Auteur(s)      : Sangnakkara Julia && Nicolas Sonnard
+// But            : ce fichier ne contient uniquement les
+//                  déclarations mises à disposition par la librairie
+//
+//                  Librairie permettant l'affichage des diferents
+//                  elements du programme.
+// Modifications  :
+// Remarque(s)    : NILL
+//---------------------------------------------------------
 
-#ifndef DATE_HPP
-#define DATE_HPP
-//#define cin.ignore(numeric_limits<streamsize>::max(), '\n') VIDER_BUFFER
+#include <cstdlib>
+#include "affichage.hpp"
 #include "date.hpp"
-#endif //DATE_HPP
+#include <iostream>
+
+// prototype des fonctions
+
+
 
 using namespace std;
+
+
+
+/************************************************************
+*
+*      fct renvoie le nom d'un mois
+*      la fonction renverra un boolean savoir si cela c'est
+*      bien passe.
+*
+* @param annee_calendrier
+* @param string
+*
+***********************************************************/
+void nomMois(const int& numero_mois) {
+
+   switch (numero_mois) {
+      case 1  : cout << "Janvier"   << endl; break;
+      case 2  : cout << "Fevrier"   << endl; break;
+      case 3  : cout << "Mars"      << endl; break;
+      case 4  : cout << "Avril"     << endl; break;
+      case 5  : cout << "Mai"       << endl; break;
+      case 6  : cout << "Juin"      << endl; break;
+      case 7  : cout << "Juillet"   << endl; break;
+      case 8  : cout << "Aout"      << endl; break;
+      case 9  : cout << "Septembre" << endl; break;
+      case 10 : cout << "Octobre"   << endl; break;
+      case 11 : cout << "Novembre"  << endl; break;
+      case 12 : cout << "Decembre"  << endl; break;
+   }
+}
 
 /************************************************************
 *
@@ -74,14 +115,14 @@ void msg_menu_quitter_prg(void) {
 *      alignees avec les jours.
 *
 * @param int
-* @param bool
 *
 ***********************************************************/
-bool affichage_calendrier(const int& annee_calendrier) {
+void affichage_calendrier(const int& annee_calendrier) {
 
-   int premier_jour_mois = 3; //output fct premier_jour_du_mois (de janvier) fictive
+   // init du premier jour de l'annee (1 er janvier)
+   int premier_jour_mois = premier_jour_janvier(annee_calendrier);
    int nb_jour_par_mois;
-   int j = 1, k = 1;
+   int j = 1, k ;
 
    int numero_mois = 1;
    while (numero_mois <= 12) {
@@ -91,7 +132,7 @@ bool affichage_calendrier(const int& annee_calendrier) {
       nomMois(numero_mois);
       cout << " L  M  M  J  V  S  D" << endl;
 
-      for (; k <= 7 && j <= nb_jour_par_mois; ++k) {
+      for (k = 1 ; k <= 7 && j <= nb_jour_par_mois; ++k) {
          for (; premier_jour_mois > 1; --premier_jour_mois) {
             cout << "   ";
             ++k;
@@ -108,11 +149,10 @@ bool affichage_calendrier(const int& annee_calendrier) {
             cout << endl;
          }
       }
-      cout << endl << endl;
+      cout << endl ;
       premier_jour_mois = k;
       ++numero_mois;
       k = 1;
       j = 1;
    }
-   return EXIT_SUCCESS;
 }

@@ -1,21 +1,22 @@
-#ifndef SAISIE_HPP
-# define SAISIE_HPP
-# include "saisie.hpp"
-#endif //SAISIE_HPP
+//---------------------------------------------------------
+// Demo           : saisie
+// Fichier        : saisie.cpp
+// Version        : 01 - 2022-09-05
+// Auteur(s)      : Sangnakkara Julia && Sonnard Nicolas
+// But            : saisie et controle des donnees entre
+//                  par l'utilisateur
+//
+// Modifications  :
+// Remarque(s)    : NILL
+//---------------------------------------------------------
 
-#ifndef AFFICHAGE_HPP
-# define AFFICHAGE_HPP
-# include "affichage.hpp"
-#endif //AFFICHAGE_HPP
 
-#ifndef DATE_HPP
-# define DATE_HPP
-# include "date.hpp"
-#endif //DATE_HPP
+#include "saisie.hpp"
+#include "affichage.hpp"
 
 #include <limits>
-#include <cstdlib>
-#include <iostream>
+#include <cstdlib>      // EXIT_SUCCESS
+#include <iostream>     // cout et cin
 
 using namespace std;
 
@@ -23,14 +24,11 @@ using namespace std;
 *
 *      Fct qui remet a zero les flags d'erreur du flux cin
 *       et vide le buffer de saisie
-*      Renvoie EXIT_SUCCESS en cas de succes,
-*      EXIT_FAILURE Si le nettoyage a echoue
 *
 * @param void
 ***********************************************************/
-bool nettoyage_flux(void) {
+ void nettoyage_flux(void) {
    cin.clear(); //changer en cin.fail?
-   return EXIT_SUCCESS;
 }
 
 
@@ -46,14 +44,17 @@ bool nettoyage_flux(void) {
 ***********************************************************/
 bool saisie_annee_calendrier(int& annee_calendrier) {
 
+   const int ANNEE_MIN = 1800,
+             ANNEE_MAX = 2100;
    bool ctrl_erreur;
 
    do {
       ctrl_erreur = not(cin >> annee_calendrier)
-         || annee_calendrier < 1800 || annee_calendrier > 2100; //Faudra faire des constantes
+                    || annee_calendrier < ANNEE_MIN || annee_calendrier > ANNEE_MAX;
       if (ctrl_erreur) {
          msg_erreur_saisie();
-         nettoyage_flux(); }
+         nettoyage_flux();
+      }
 
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
 

@@ -1,11 +1,7 @@
-#ifndef CALENDRIER
-#define CALENDRIER
 #include "affichage.hpp"
-#include "date.hpp"
 #include "saisie.hpp"
-#endif //CALENDRIER
+#include "date.hpp"
 
-using namespace std;
 
 int main() {
 
