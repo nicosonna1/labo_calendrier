@@ -7,7 +7,7 @@ using namespace std;
 
 // constante locale
 // choix de 1601 car tombe un lundi. Il faut toujours prendre un lundi
-const int ANNNEE_MIN=1900;
+const int ANNEE_MIN=1798;
 
 
 
@@ -23,7 +23,7 @@ const int ANNNEE_MIN=1900;
 ***********************************************************/
 bool estBissextile(const int& annee_calendrier) {
 
-    return (annee_calendrier % 4 == 0) || (annee_calendrier % 4 == 0 && annee_calendrier % 100 != 0);
+    return (annee_calendrier % 400 == 0) || (annee_calendrier % 4 == 0 && annee_calendrier % 100 != 0);
 
 }
 
@@ -61,6 +61,20 @@ int nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours) 
    return totalJours;
 }
 
+
+
+
+int nbAnneBisexctille(const int& anneeFin){
+    int nbAnnee=0;
+    for(int i=ANNEE_MIN ; i<=anneeFin; ++i){
+        if (estBissextile(i)){
+         cout << i <<"     ";
+         nbAnnee+=1;}
+
+    }
+    return nbAnnee;
+}
+
 /************************************************************
 *
 *      fct qui calcule le premier jour de janvier
@@ -81,17 +95,19 @@ signed int  premier_jour_janvier(const int& annee){
     nbJours += 2;
 */
     // retour une erreur car hors limite
-    unsigned int deltaAnnee=(annee-1)-ANNNEE_MIN;
+    unsigned int deltaAnnee=annee-ANNEE_MIN;
     //division par 4 toleree a condition que ANNEE_MIN ait un lundi 1 er janvier
-    unsigned int anneeBissexctile = deltaAnnee / 4 ;
+    unsigned int anneeBissexctile = nbAnneBisexctille(annee);
     unsigned int anneeNormale =deltaAnnee-anneeBissexctile;
 
-    unsigned int totalAnnee = anneeBissexctile*366 + anneeNormale*365 + deltaAnnee / 100 +1 ;
+    unsigned int totalJourAnnee = anneeBissexctile*366 + anneeNormale*365 +1 ;
+    cout<< "\r\n annee"<< annee << "nb annee normale " << anneeNormale << "nb annee bisextille " << anneeBissexctile << "total jours " << totalJourAnnee<<"delta annee " << deltaAnnee ;
     // ajout de 1 au jour car lundi = 1
-    return totalAnnee%7+1;
+    return totalJourAnnee%7;
     // return ok car annee correct
     return true;
 
-
 }
+
+
 
