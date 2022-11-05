@@ -1,7 +1,18 @@
+//---------------------------------------------------------
+// Demo           : main
+// Fichier        : main.cpp
+// Version        : 01 - 2022-09-05
+// Auteur(s)      : Sangnakkara Julia && Nicolas Sonnard
+// But            : Programme qui permet a un utilisateur
+//                  d'afficher le calendrier de l annee
+//                  de son choix, entre l'an 1800 et 2100
+// Modifications  :
+// Remarque(s)    : NILL
+//---------------------------------------------------------
+
 #include "affichage.hpp"
 #include "saisie.hpp"
 #include "date.hpp"
-
 
 int main() {
 
@@ -15,5 +26,5 @@ int main() {
       affichage_calendrier(annee_calendrier);
       if (menu_quitter())
          return EXIT_SUCCESS;
-   } while (1);
+   } while (true);
 }

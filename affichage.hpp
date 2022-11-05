@@ -5,8 +5,7 @@
 // Auteur(s)      : Sangnakkara Julia && Sonnard Nicolas
 // But            : declaration de la librairie date
 //
-//
-//                  Librairie permettant l'affichage des diferents
+//                  Librairie permettant l'affichage des differents
 //                  elements du programme.
 // Modifications  :
 // Remarque(s)    : NILL
