@@ -10,8 +10,8 @@
 // Remarque(s)    : NILL
 //---------------------------------------------------------
 
-#include "saisie.hpp"
-#include "affichage.hpp"
+#include "saisie.h"
+#include "affichage.h"
 
 #include <limits>       // numeric_limits
 #include <cstdlib>      // EXIT_SUCCESS

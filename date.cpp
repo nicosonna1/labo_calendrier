@@ -11,7 +11,7 @@
 // Remarque(s)    : NILL
 //---------------------------------------------------------
 
-#include "date.hpp"
+#include "date.h"
 
 using namespace std;
 

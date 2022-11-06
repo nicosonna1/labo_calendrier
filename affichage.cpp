@@ -12,8 +12,8 @@
 // Remarque(s)    : NILL
 //---------------------------------------------------------
 
-#include "affichage.hpp"
-#include "date.hpp"
+#include "affichage.h"
+#include "date.h"
 #include <iostream>
 
 #define ANNEE_MIN 1800

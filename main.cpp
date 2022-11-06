@@ -10,9 +10,9 @@
 // Remarque(s)    : NILL
 //---------------------------------------------------------
 
-#include "affichage.hpp"
-#include "saisie.hpp"
-#include "date.hpp"
+#include "affichage.h"
+#include "saisie.h"
+#include "date.h"
 
 int main() {
 
