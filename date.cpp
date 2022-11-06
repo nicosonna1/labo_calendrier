@@ -1,6 +1,6 @@
 
 #include "date.hpp"
-#include <iostream>     // cout et cin
+
 
 
 using namespace std;
@@ -61,15 +61,24 @@ int nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours) 
     return totalJours;
 }
 
-
+/************************************************************
+*
+*      fct qui compte le nombre d'annee bisexctille
+*      entre deux date
+*      selon wikipedia le calendrier georgien a ete adopté
+*     en 1548 par consequent la fonctionne commencer en 1798 min
+*     le premier janvier 1600 etait un samedi donc 6 eme jour
+* @param anneeFin
+* @param error
+*
+***********************************************************/
 
 
 int nbAnneBisexctille(const int& anneeFin){
+    // init à 0 car peut renvoyer 0
     int nbAnnee=0;
     for(int i=ANNEE_MIN ; i< anneeFin; ++i){
-        if (estBissextile(i)){
-            cout << i <<"     ";
-            nbAnnee+=1;}
+        if (estBissextile(i)) nbAnnee+=1;
 
     }
     return nbAnnee;
@@ -85,36 +94,7 @@ int nbAnneBisexctille(const int& anneeFin){
 * @param error
 *
 ***********************************************************/
-<<<<<<< HEAD
-signed int  premier_jour_janvier(const int& annee){
-
-
-    unsigned int deltaAnnee=annee-ANNEE_MIN;
-    //division par 4 toleree a condition que ANNEE_MIN ait un lundi 1 er janvier
-    unsigned int anneeBissexctile = nbAnneBisexctille(annee);
-    unsigned int anneeNormale =deltaAnnee-anneeBissexctile;
-=======
-
-
-
-/*
-signed int  premier_jour_janvier(const int& annee){
-
-const int ANNNEE_MIN = 1900;
- // retour une erreur car hors limite
- int deltaAnnee = (annee - 1) - ANNNEE_MIN;
- // division par 4 toleree a condition que ANNEE_MIN ait un lundi 1er janvier
- int anneeBissexctile = deltaAnnee / 4 ;
- int anneeNormale = deltaAnnee-anneeBissexctile;
- int totalAnnee = anneeBissexctile * 366 + anneeNormale * 365 + deltaAnnee / 100 + 1 ;
- return totalAnnee % 7 + 1;
-}*/
-
-signed int  premier_jour_janvier(const int& annee_calendrier){
-   int ref_year = 1798, leap = 0, diff, total_days = 0;
->>>>>>> 811e594f1ea8add6cc28566294776f6a945a6142
-
-signed int  premier_jour_janvier(const int& annee){
+ unsigned int premier_jour_janvier(const int& annee){
 
 
     unsigned int deltaAnnee=annee-ANNEE_MIN;
@@ -126,6 +106,5 @@ signed int  premier_jour_janvier(const int& annee){
     unsigned int totalJourAnnee = anneeBissexctile*366 + anneeNormale*365 +1 ;
 
     return totalJourAnnee%7;
-
-
+    
 }
