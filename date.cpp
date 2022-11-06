@@ -16,6 +16,16 @@
 
 using namespace std;
 
+<<<<<<< HEAD
+// constante locale
+// choix de 1601 car tombe un lundi. Il faut toujours prendre un lundi
+const int ANNEE_MIN=1798;
+
+
+
+
+=======
+>>>>>>> 3b8a52cb4a3d1a15a345daa1423ddf242c7d6942
 /************************************************************
 *
 *      fct permettant de determiner si une annee
@@ -27,7 +37,7 @@ using namespace std;
 ***********************************************************/
 bool estBissextile(const int& annee_calendrier) {
 
-    return (annee_calendrier % 4 == 0) || (annee_calendrier % 4 == 0 && annee_calendrier % 100 != 0);
+    return (annee_calendrier % 400 == 0) || (annee_calendrier % 4 == 0 && annee_calendrier % 100 != 0);
 
 }
 
@@ -59,6 +69,20 @@ int nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours) 
       default : return EXIT_FAILURE;
    }
    return totalJours;
+}
+
+
+
+
+int nbAnneBisexctille(const int& anneeFin){
+    int nbAnnee=0;
+    for(int i=ANNEE_MIN ; i<=anneeFin; ++i){
+        if (estBissextile(i)){
+         cout << i <<"     ";
+         nbAnnee+=1;}
+
+    }
+    return nbAnnee;
 }
 
 /************************************************************
@@ -105,6 +129,3 @@ signed int  premier_jour_janvier(const int& annee_calendrier){
       ref_year++;
    }
 
-   total_days = (diff - leap) * 365 + leap * 366;
-   return (total_days % 7) + 1;
-}
