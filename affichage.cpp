@@ -1,9 +1,9 @@
 //---------------------------------------------------------
 // Demo           : affichage
 // Fichier        : affichage.cpp
-// Version        : 01 - 2022-09-05
+// Version        : 01 - 2022-11-06
 // Auteur(s)      : Sangnakkara Julia && Nicolas Sonnard
-// But            : ce fichier contient les
+// But            : Ce fichier contient les
 //                  declarations mises à disposition par la librairie
 //
 //                  Librairie permettant l'affichage des differents
@@ -24,7 +24,7 @@ using namespace std;
 /************************************************************
 *
 *      fct qui affiche le nom d'un mois dont le numero
-*      a ete passe en parametre par reference
+*      correspondant a ete passe en parametre par reference
 *
 *
 * @param annee_calendrier
@@ -49,20 +49,26 @@ void nomMois(const int& numero_mois) {
    }
 }
 
+
 /************************************************************
 *
 *      fct qui affiche un message de bienvenue
 *      et qui invite l'utilisateur a saisir l'annee
-*      pour laquelle il souhaiterait afficher le calendrier
+*      dont il souhaiterait afficher le calendrier
 *
 * @param void
 * @param void
 *
 ***********************************************************/
 void  msg_bienvenue(void) {
-   cout  << "Bonjour, bienvenue dans notre calculateur de calendrier"	     << endl;
-   cout  << "Saisissez une annee dont vous souhaitez afficher le calendrier" << endl;
+
+   cout  << endl
+         << "[ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ]"    << endl
+         << "[ ] Bonjour, bienvenue dans \"Calendrier\"! [ ]"  << endl
+         << "[ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ][ ]"    << endl
+         << endl;
 }
+
 
 /************************************************************
 *
@@ -74,21 +80,40 @@ void  msg_bienvenue(void) {
 *
 ***********************************************************/
 void msg_explications(void) {
-   cout << "Veuillez entrer une valeur situee entre " << ANNEE_MIN << " et " << ANNEE_MAX << endl;
+
+   cout << "Veuillez entrer une annee situee entre " << ANNEE_MIN << " et " << ANNEE_MAX << " : " << endl;
 }
+
 
 /************************************************************
 *
 *      fct qui affiche un message d'erreur
-*     en cas de saisie non valide
+*      en cas de saisie non valide
 *
 * @param void
 * @param void
 *
 ***********************************************************/
 void  msg_erreur_saisie(void) {
-   cout  << "Erreur, veuillez saisir une date entre " << ANNEE_MIN << " et " << ANNEE_MAX << endl;
+
+   cout  << "Erreur, veuillez saisir une date entre " << ANNEE_MIN << " et " << ANNEE_MAX << " : " << endl;
 }
+
+/************************************************************
+*
+*      fct qui affiche un message d'erreur
+*      en cas de saisie non valide
+*
+* @param void
+* @param void
+*
+***********************************************************/
+void  msg_erreur_saisie_quitter(void) {
+
+   cout  << "Erreur, veuillez saisir \'O' ou \'N'" << endl
+         << "Veuillez recommencer la saisie : "    << endl;
+}
+
 
 /************************************************************
 *
@@ -101,14 +126,16 @@ void  msg_erreur_saisie(void) {
 *
 ***********************************************************/
 void msg_menu_quitter_prg(void) {
+
    cout  << "Voulez-vous afficher un autre calendrier ?" << endl
          << "[ O / N ] ?"                                << endl;
 }
 
+
 /************************************************************
 *
-*      fct qui affiche le calendrier entier d'une annee donnee,
-*      les dates sont affichees sous le jour correspondant.
+*      fct qui affiche le calendrier entier d'une annee donnee.
+*      Les dates sont affichees sous le jour correspondant.
 *
 * @param int
 *
@@ -119,38 +146,35 @@ void affichage_calendrier(const int& annee_calendrier) {
    int premier_jour_mois = premier_jour_janvier(annee_calendrier);
    int nb_jour_par_mois;
 
-
-   cout << premier_jour_mois << endl;
-
-
-   int numero_mois = 1;
-   while (numero_mois <= 12) {
+   int j, k = 0;
+   for (int numero_mois = 1 ; numero_mois <= 12; ++numero_mois) {
 
       nbJoursMois(numero_mois, annee_calendrier, nb_jour_par_mois);
-
       nomMois(numero_mois);
-      cout << " L  M  M  J  V  S  D" << endl;
+      cout << " L  M  M  J  V  S  D"  << endl;
 
-      int j = 1, k = 1;
-      for (; k <= 7 && j <= nb_jour_par_mois; ++k) {
+      for (j = 1; j <= nb_jour_par_mois ; ++j) {
          for (; premier_jour_mois > 1; --premier_jour_mois) {
             cout << "   ";
             ++k;
          }
          if (j < 10)
             cout << " ";
-         cout << j++;
+         cout << j;
+         cout << " ";
 
-         if (k != 7) {
-            cout << " ";
+         ++k;
+         if (k == 7) {
+            if (j != nb_jour_par_mois)
+               cout << endl;
+            k = 0;
          }
-         else {
+         if (j == nb_jour_par_mois) {
+            premier_jour_mois = k + 1;
             k = 0;
             cout << endl;
          }
       }
-      cout << endl << endl;
-      premier_jour_mois = k;
-      ++numero_mois;
+      cout << endl;
    }
 }

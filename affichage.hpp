@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Demo           : affichage
 // Fichier        : affichage.hpp
-// Version        : 01 - 2022-09-05
+// Version        : 01 - 2022-11-06
 // Auteur(s)      : Sangnakkara Julia && Sonnard Nicolas
 // But            : declaration de la librairie date
 //
@@ -19,6 +19,7 @@
 void msg_bienvenue(void);
 void msg_explications(void);
 void msg_erreur_saisie(void);
+void msg_erreur_saisie_quitter(void);
 void affichage_calendrier(const int& annee_calendrier);
 void msg_menu_quitter_prg(void);
 

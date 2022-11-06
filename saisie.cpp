@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Demo           : saisie
 // Fichier        : saisie.cpp
-// Version        : 01 - 2022-09-05
+// Version        : 01 - 2022-11-06
 // Auteur(s)      : Sangnakkara Julia && Sonnard Nicolas
 // But            : saisie et controle des donnees entrees
 //                  par l'utilisateur
@@ -22,21 +22,22 @@ using namespace std;
 /************************************************************
 *
 *      Fct qui remet a zero les flags d'erreur du flux cin
-*       et vide le buffer de saisie
-*
+*      et nettoye le buffer de saisie jusqu'a '\n'
+ *
 * @param void
 ***********************************************************/
  void nettoyage_flux(void) {
    cin.clear();
+   cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
 
 /************************************************************
 *
 *      Fct qui stocke une annee entree par l'utilisateur.
-*      Si l'utilisateur rentre une donnee non valide ou une
+*      S'il/elle rentre une donnee non valide ou une
 *      annee hors de l'intervalle [1800;2100], le flux est
-*      nettoye, le buffer de saisie vide, l'utilisateur
+*      nettoye, le buffer de saisie vide, et l'utilisateur
 *      doit saisir une nouvelle valeur.
 *
 * @param void
@@ -55,11 +56,12 @@ bool saisie_annee_calendrier(int& annee_calendrier) {
          nettoyage_flux();
       }
 
-      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Vide le buffer de saisie
 
    } while (ctrl_erreur);
    return EXIT_SUCCESS;
 }
+
 
 /************************************************************
 *
@@ -87,7 +89,8 @@ bool menu_quitter(void) {
 
       if      (cara_oui_non == 'o' || cara_oui_non == 'O') return EXIT_SUCCESS;
       else if (cara_oui_non == 'n' || cara_oui_non == 'N') return EXIT_FAILURE;
-      else    { msg_erreur_saisie(); nettoyage_flux(); }
+      else    { nettoyage_flux(); msg_erreur_saisie_quitter();}
+
    } while (ctrl_erreur);
 
    return EXIT_FAILURE;
