@@ -85,6 +85,35 @@ int nbAnneBisexctille(const int& anneeFin){
 * @param error
 *
 ***********************************************************/
+<<<<<<< HEAD
+signed int  premier_jour_janvier(const int& annee){
+
+
+    unsigned int deltaAnnee=annee-ANNEE_MIN;
+    //division par 4 toleree a condition que ANNEE_MIN ait un lundi 1 er janvier
+    unsigned int anneeBissexctile = nbAnneBisexctille(annee);
+    unsigned int anneeNormale =deltaAnnee-anneeBissexctile;
+=======
+
+
+
+/*
+signed int  premier_jour_janvier(const int& annee){
+
+const int ANNNEE_MIN = 1900;
+ // retour une erreur car hors limite
+ int deltaAnnee = (annee - 1) - ANNNEE_MIN;
+ // division par 4 toleree a condition que ANNEE_MIN ait un lundi 1er janvier
+ int anneeBissexctile = deltaAnnee / 4 ;
+ int anneeNormale = deltaAnnee-anneeBissexctile;
+ int totalAnnee = anneeBissexctile * 366 + anneeNormale * 365 + deltaAnnee / 100 + 1 ;
+ return totalAnnee % 7 + 1;
+}*/
+
+signed int  premier_jour_janvier(const int& annee_calendrier){
+   int ref_year = 1798, leap = 0, diff, total_days = 0;
+>>>>>>> 811e594f1ea8add6cc28566294776f6a945a6142
+
 signed int  premier_jour_janvier(const int& annee){
 
 

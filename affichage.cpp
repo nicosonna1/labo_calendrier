@@ -118,7 +118,10 @@ void affichage_calendrier(const int& annee_calendrier) {
    // init du premier jour de l'annee (1 er janvier)
    int premier_jour_mois = premier_jour_janvier(annee_calendrier);
    int nb_jour_par_mois;
-   int j = 1, k ;
+
+
+   cout << premier_jour_mois << endl;
+
 
    int numero_mois = 1;
    while (numero_mois <= 12) {
@@ -128,7 +131,8 @@ void affichage_calendrier(const int& annee_calendrier) {
       nomMois(numero_mois);
       cout << " L  M  M  J  V  S  D" << endl;
 
-      for (k = 1 ; k <= 7 && j <= nb_jour_par_mois; ++k) {
+      int j = 1, k = 1;
+      for (; k <= 7 && j <= nb_jour_par_mois; ++k) {
          for (; premier_jour_mois > 1; --premier_jour_mois) {
             cout << "   ";
             ++k;
@@ -148,7 +152,5 @@ void affichage_calendrier(const int& annee_calendrier) {
       cout << endl << endl;
       premier_jour_mois = k;
       ++numero_mois;
-      k = 1;
-      j = 1;
    }
 }
