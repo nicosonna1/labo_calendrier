@@ -1,3 +1,15 @@
+//---------------------------------------------------------
+// Fichier        : date.cpp
+// Version        : 01 - 2022-11-22
+// Auteur(s)      : Sangnakkara Julia et Sonnard Nicolas
+// But            : ce fichier ne contient uniquement les
+//                  déclarations mises à disposition par la librairie
+//                  renvoie a l'utilisateur si une annee est
+//                  bissexctille, renvoie le nom d'un nomMois
+//                  renvoie le premier jour de janvier
+// Modifications  :
+// Remarque(s)    : NILL
+//---------------------------------------------------------
 
 #include "date.hpp"
 
