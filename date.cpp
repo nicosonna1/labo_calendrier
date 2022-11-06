@@ -71,31 +71,24 @@ int nbJoursMois(int& numero_mois, const int& annee_calendrier, int& totalJours) 
 * @param error
 *
 ***********************************************************/
-/*
-// constante locale
-// choix de 1601 car tombe un lundi. Il faut toujours prendre un lundi
-const int ANNNEE_MIN = 1900;
 
+
+
+/*
 signed int  premier_jour_janvier(const int& annee){
 
-    /*
-    unsigned int nbJours = (annee - 1) * 365;
-    nbJours += ((annee - 1) / 4);
-    nbJours -= ((annee - 1) / 100);
-    nbJours += ((annee - 1) / 400);
-    nbJours += 2;
-*//*
-    // retour une erreur car hors limite
-    int deltaAnnee = (annee - 1) - ANNNEE_MIN;
-    // division par 4 toleree a condition que ANNEE_MIN ait un lundi 1er janvier
-    int anneeBissexctile = deltaAnnee / 4 ;
-    int anneeNormale = deltaAnnee-anneeBissexctile;
-    int totalAnnee = anneeBissexctile * 366 + anneeNormale * 365 + deltaAnnee / 100 + 1 ;
-    return totalAnnee % 7 + 1;
+const int ANNNEE_MIN = 1900;
+ // retour une erreur car hors limite
+ int deltaAnnee = (annee - 1) - ANNNEE_MIN;
+ // division par 4 toleree a condition que ANNEE_MIN ait un lundi 1er janvier
+ int anneeBissexctile = deltaAnnee / 4 ;
+ int anneeNormale = deltaAnnee-anneeBissexctile;
+ int totalAnnee = anneeBissexctile * 366 + anneeNormale * 365 + deltaAnnee / 100 + 1 ;
+ return totalAnnee % 7 + 1;
 }*/
 
 signed int  premier_jour_janvier(const int& annee_calendrier){
-   int ref_year = 1900, leap = 0, diff, total_days = 0;
+   int ref_year = 1798, leap = 0, diff, total_days = 0;
 
    diff = annee_calendrier - ref_year;
 
